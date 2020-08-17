@@ -7,4 +7,16 @@ $navbar-dark-color: rgba(#fff, .75) !default;
 $navbar-dark-hover-color: #fff !default;
 $navbar-active-color: #fff;
 
+// Changing the theme colors
+$primary: #683064;
+$secondary: #AC5C92;
+$success: #02747F;
+$info: #C9A0CE;
+$warning: #8A8A8D;
+//$danger: #ff293a;
+$light: #A7E6D9;
+$dark: #3C3C3B;
+
 @import "../../node_modules/@coreui/coreui/scss/_variables.scss";
+
+
