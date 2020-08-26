@@ -113,7 +113,7 @@ export default class API extends Component {
                     <strong>{t('example')}</strong>
                 </p>
 
-                <pre>curl -XGET '{getUrl(`api/subscriptions/P5wKkz-e7?access_token=${accessToken}&limit=10&start=10&search=gmail`)}' </pre>
+                <pre>curl -XGET '{getUrl(`api/subscriptions/P5wKkz-e7?access_token=${accessToken}&limit=10&start=10`)}' </pre>
 
             </div>
         </div>
