@@ -93,27 +93,52 @@ export default class API extends Component {
         </div>
         <div id="moresubscribers" class="collapse" data-parent="#apicalls">
             <div class="card-body">
-               <p>
-                    {t('Get subscribers')}
-                </p>
+                <p>{t('Get subscribers')}</p>
 
-                <p>
-                    {t('Query params')}
-                </p>
+                <h5><strong>{t('Query params')}</strong></h5>
                 <ul>
                     <li><strong>access_token</strong> – {t('yourPersonalAccessToken')}
-                        <ul>
-                        <li><strong>start</strong> – {t('startPosition')} (<em>{t('optionalDefault0')}</em>)</li>
-                        <li><strong>limit</strong> – {t('limitEmailsCountInResponse')} (<em>{t('optionalDefault10000')}</em>)</li>
-                        </ul>
+                    <li><strong>start</strong> – {t('startPosition')} (<em>{t('optionalDefault0')}</em>)</li>
+                    <li><strong>limit</strong> – {t('limitEmailsCountInResponse')} (<em>{t('optionalDefault10000')}</em>)</li>
                     </li>
                 </ul>
 
-                <p>
-                    <strong>{t('example')}</strong>
-                </p>
+                <h5><strong>{t('example')}</strong></h5>
 
-                <pre>curl -XGET '{getUrl(`api/subscriptions/P5wKkz-e7?access_token=${accessToken}&limit=10&start=10&search=gmail`)}' </pre>
+                <textarea>curl -XGET '{getUrl(`api/subscriptions/P5wKkz-e7?access_token=${accessToken}&limit=10&start=10`)}' </textarea>
+
+                <h5><strong>{t('Response example'})</strong></h5>
+                <textarea>{'{'}
+  "data":{'{'}
+    "start":0,
+    "limit":1,
+    "subscriptions":[
+      {'{'}
+        "id":1,
+        "cid":"7Ap0r-8IR",
+        "email":"user@example.com",
+        "hash_email":"x3i/GvzOj6tdIbsMk1AeJw89WyfYdpsw1GqPOhzUHscVn9DIYrZyF1E4rp2kY1wll8ynUI/OYKk5Ov+7sPXQkg==",
+        "source_email":11,
+        "opt_in_ip":null,
+        "opt_in_country":null,
+        "tz":null,
+        "status":2,
+        "is_test":0,
+        "status_change":"2020-08-26T10:33:01.000Z",
+        "unsubscribed":"2020-08-26T10:33:01.000Z",
+        "latest_open":"2020-08-26T10:34:01.000Z",
+        "latest_click":"2020-08-26T10:35:01.000Z",
+        "created":"2020-08-18T10:55:44.000Z",
+        "updated":"2020-08-26T10:33:01.000Z",
+        "custom_first_name_fafotcmr6l":"First Name",
+        "source_custom_first_name_fafotcmr6l":11,
+        "custom_last_name_zdsyhfddb0":"Last Name",
+        "source_custom_last_name_zdsyhfddb0":11 //And the rest of custom fields
+      {'}'}
+    ]
+  {'}'}
+{'}'}</textarea>
+
 
             </div>
         </div>
@@ -170,7 +195,7 @@ export default class API extends Component {
                 <p>
                     {t('Response example')}:
                 </p>
-                <pre>"data": ("id":"TTrw41znK")</pre>
+                <pre>{'{'}"data": {'{'}"id":"TTrw41znK"{'}'}{'}'}</pre>
 
             </div>
         </div>
@@ -209,7 +234,7 @@ export default class API extends Component {
                 <p>
                     {t('Response example')}:
                 </p>
-                <pre>"data": ("id":"TTrw41znK", "unsubscribed":true)</pre>
+                <pre>{'{'}"data": {'{'}"id":"TTrw41znK", "unsubscribed":true{'}'}{'}'}</pre>
 
             </div>
         </div>
@@ -247,7 +272,7 @@ export default class API extends Component {
                 <p>
                     {t('Response example')}:
                 </p>
-                <pre>"data": ("id":"TTrw41znK", "deleted":true)</pre>
+                <pre>{'{'}"data": {'{'}"id":"TTrw41znK", "deleted":true{'}'}{'}'}</pre>
 
             </div>
         </div>
@@ -306,7 +331,7 @@ export default class API extends Component {
                 <p>
                     {t('Response example')}:
                 </p>
-                <pre>"data": ("id":22, "tag":"MERGE_COMMENT")</pre>
+                <pre>{'{'}"data": {'{'}"id":22, "tag":"MERGE_COMMENT"{'}'}{'}'}</pre>
             </div>
         </div>
     </div>
@@ -325,11 +350,9 @@ export default class API extends Component {
                 </p>
                 <ul>
                     <li><strong>access_token</strong> – {t('yourPersonalAccessToken')}
-                        <ul>
-                        <li><strong>start</strong> – {t('startPosition')} (<em>{t('optionalDefault0')}</em>)</li>
-                        <li><strong>limit</strong> – {t('limitEmailsCountInResponse')} (<em>{t('optionalDefault10000')}</em>)</li>
-                        <li><strong>search</strong> – {t('filterByPartOfEmail')} (<em>{t('optionalDefault')}</em>)</li>
-                        </ul>
+                    <li><strong>start</strong> – {t('startPosition')} (<em>{t('optionalDefault0')}</em>)</li>
+                    <li><strong>limit</strong> – {t('limitEmailsCountInResponse')} (<em>{t('optionalDefault10000')}</em>)</li>
+                    <li><strong>search</strong> – {t('filterByPartOfEmail')} (<em>{t('optionalDefault')}</em>)</li>
                     </li>
                 </ul>
 
@@ -526,7 +549,7 @@ export default class API extends Component {
                 <p>
                     {t('Response example')}:
                 </p>
-                <pre>"data": ("id":"WSGjaP1fY")</pre>
+                <pre>{'{'}"data": {'{'}"id":"WSGjaP1fY"{'}'}{'}'}</pre>
             </div>
         </div>
     </div>
@@ -555,7 +578,7 @@ export default class API extends Component {
                 <p>
                     {t('Response example')}:
                 </p>
-                <pre>{t('Empty object')}</pre>
+                <pre>{'{'}{'}'}</pre>
             </div>
         </div>
     </div>
