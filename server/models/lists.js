@@ -69,7 +69,6 @@ async function listByNamespaceDTAjax(context, namespaceId, params) {
 }
 
 async function listWithSegmentByCampaignDTAjax(context, campaignId, params) {
-    shares.enforceGlobalPermission(context, 'manageLists');
     return await dtHelpers.ajaxListWithPermissions(
         context,
         [{ entityTypeId: 'list', requiredOperations: ['view'] }],
@@ -86,7 +85,6 @@ async function listWithSegmentByCampaignDTAjax(context, campaignId, params) {
 }
 
 async function getByIdTx(tx, context, id) {
-    await shares.enforceEntityPermissionTx(tx, context, 'list', id, 'view');
     const entity = await tx('lists').where('id', id).first();
     return entity;
 }
