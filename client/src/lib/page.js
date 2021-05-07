@@ -414,10 +414,11 @@ export class SectionContent extends Component {
     }
 
     componentDidMount() {
+        const t = this.props.t;
         const queryParams = this.props.location.search;
-        if (queryParams.indexOf('cas-login-success') > -1) this.setFlashMessage('success', 'Successful authentication');
-        if (queryParams.indexOf('cas-logout-success') > -1) this.setFlashMessage('success', 'Successful logout');
-        if (queryParams.indexOf('cas-login-error') > -1) this.setFlashMessage('danger', 'Fail authentication');
+        if (queryParams.indexOf('cas-login-success') > -1) this.setFlashMessage('success', t('authenticationSuccessful'));
+        if (queryParams.indexOf('cas-logout-success') > -1) this.setFlashMessage('success', t('logoutSuccessful'));
+        if (queryParams.indexOf('cas-login-error') > -1) this.setFlashMessage('danger', t('authenticationFailed'));
 
         window.addEventListener('beforeunload', this.beforeUnloadHandler);
         this.historyUnblock = this.props.history.block('Changes you made may not be saved. Are you sure you want to leave this page?');
@@ -603,16 +604,23 @@ export class LinkButton extends Component {
 export class DropdownLink extends Component {
     static propTypes = {
         to: PropTypes.string,
-        className: PropTypes.string
+        className: PropTypes.string,
+        forceReload: PropTypes.bool
     }
 
     render() {
         const props = this.props;
 
         const clsName = "dropdown-item" + (props.className ? " " + props.className : "")
-        return (
+        if (props.forceReload) {
+          return (
             <Link to={props.to} className={clsName} onClick={() => window.location.href=props.to}>{props.children}</Link>
-        );
+          );
+         } else {
+          return (
+            <Link to={props.to} className={clsName}>{props.children}</Link>
+          );
+         }
     }
 }
 

@@ -110,15 +110,15 @@ export default class API extends Component {
 
                 <h5><strong>{t('example')}</strong></h5>
 
-                <textarea>curl -XGET '{getUrl(`api/subscriptions/P5wKkz-e7?access_token=${accessToken}&limit=10&start=10`)}' </textarea>
+                <pre>curl -XGET '{getUrl(`api/subscriptions/P5wKkz-e7?access_token=${accessToken}&limit=10&start=10`)}' </pre>
 
                 <h5><strong>{t('Response example')}</strong></h5>
-                <textarea>{t('abre')}
-  "data":{t('abre')}
+                <pre>{'{'}
+  "data":{'{'}
     "start":0,
     "limit":1,
     "subscriptions":[
-      {t('abre')}
+      {'{'}
         "id":1,
         "cid":"7Ap0r-8IR",
         "email":"user@example.com",
@@ -139,10 +139,10 @@ export default class API extends Component {
         "source_custom_first_name_fafotcmr6l":11,
         "custom_last_name_zdsyhfddb0":"Last Name",
         "source_custom_last_name_zdsyhfddb0":11 //And the rest of custom fields
-      {t('cierra')}
+	    {'}'}
     ]
-  {t('cierra')}
-{t('cierra')}</textarea>
+  {'}'}
+{'}'}</pre>
 
             </div>
         </div>
@@ -199,7 +199,7 @@ export default class API extends Component {
                 <p>
                     {t('Response example')}:
                 </p>
-                <pre>{t('abre')}"data": {t('abre')}"id":"TTrw41znK"{t('cierra')}{t('cierra')}</pre>
+                <pre>{'{'}"data": {'{'}"id":"TTrw41znK"{'}'}{'}'}</pre>
 
             </div>
         </div>
@@ -238,7 +238,7 @@ export default class API extends Component {
                 <p>
                     {t('Response example')}:
                 </p>
-                <pre>{t('abre')}"data": {t('abre')}"id":"TTrw41znK", "unsubscribed":true{t('cierra')}{t('cierra')}</pre>
+                <pre>{'{'}"data": {'{'}"id":"TTrw41znK", "unsubscribed":true{'}'}{'}'}</pre>
 
             </div>
         </div>
@@ -276,7 +276,7 @@ export default class API extends Component {
                 <p>
                     {t('Response example')}:
                 </p>
-                <pre>{t('abre')}"data": {t('abre')}"id":"TTrw41znK", "deleted":true{t('cierra')}{t('cierra')}</pre>
+                <pre>{'{'}"data": {'{'}"id":"TTrw41znK", "deleted":true{'}}'}</pre>
 
             </div>
         </div>
@@ -335,7 +335,7 @@ export default class API extends Component {
                 <p>
                     {t('Response example')}:
                 </p>
-                <pre>{t('abre')}"data": {t('abre')}"id":22, "tag":"MERGE_COMMENT"{t('cierra')}{t('cierra')}</pre>
+                <pre>{'{'}"data": {'{'}"id":22, "tag":"MERGE_COMMENT"{'}}'}</pre>
             </div>
         </div>
     </div>
@@ -553,7 +553,7 @@ export default class API extends Component {
                 <p>
                     {t('Response example')}:
                 </p>
-                <pre>{t('abre')}"data": {t('abre')}"id":"WSGjaP1fY"{t('cierra')}{t('cierra')}</pre>
+                <pre>{'{'}"data": {'{'}"id":"WSGjaP1fY"{'}}'}</pre>
             </div>
         </div>
     </div>
@@ -582,7 +582,7 @@ export default class API extends Component {
                 <p>
                     {t('Response example')}:
                 </p>
-                <pre>{t('abre')}{t('cierra')}</pre>
+                <pre>{'{}'}</pre>
             </div>
         </div>
     </div>

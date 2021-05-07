@@ -23,6 +23,11 @@ function getMenus(t) {
                     entityTypeId: 'namespace',
                     requiredOperations: ['createCampaign']
                 },
+	        viewCampaign: {
+		    entityTypeId: 'campaign',
+		    requiredOperations: ['view']
+		},
+
                 ...namespaceCheckPermissions('createChannel'),
             },
             

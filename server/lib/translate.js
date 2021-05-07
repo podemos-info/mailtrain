@@ -68,10 +68,16 @@ function getLangCodeFromExpressLocale(locale) {
     if (longCode in resources) {
         return longCode;
     } else {
-        return config.defaultLanguage
+        return config.defaultLanguage;
+	//return i18n.language;
     }
 }
 
+function getLangCode() {
+    return i18n.language;
+}
+
+module.exports.getLangCode = getLangCode;
 module.exports.tLog = tLog;
 module.exports.tUI = tUI;
 module.exports.tMark = tMark;

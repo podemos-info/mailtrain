@@ -10,7 +10,7 @@ const knex = require('knex')({
     connection: {
         ...config.mysql,
 
-	charset: utf8mb4,
+	charset: 'utf8mb4',
 	multipleStatements: true,
 
 	// DATE and DATETIME types contain no timezone info. The MySQL driver tries to interpret them w.r.t. to local time, which
@@ -22,12 +22,12 @@ const knex = require('knex')({
     },
     pool: {
         min: 2,
-        max: 10,
+        max: 10/*,
         afterCreate: function(conn, cb) {
             conn.query('SET sql_mode="ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION";', function (err) {
                cb(err, conn);
 	    });
-	}
+	}*/
     },
     migrations: {
         directory: path.join(__dirname, '..', 'setup', 'knex', 'migrations')

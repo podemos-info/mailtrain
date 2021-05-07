@@ -26,6 +26,12 @@ async function getRouter(appType) {
                 publicPath: getTrustedUrl()
             });
         });
+        /*router.get('/auth/cas',
+	    passport.authenticateCas,
+	    function(req, res) {
+	        // Successful authentication, redirect home.
+	        res.redirect('/');
+	 });*/
     }
 
     return router;
