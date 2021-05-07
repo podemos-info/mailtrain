@@ -1,5 +1,5 @@
 exports.up = (knex, Promise) => (async() => {
-    await knex.schema.createTable('channels', table => {
+/*    await knex.schema.createTable('channels', table => {
         table.increments('id').primary();
         table.string('cid').unique().collate('utf8_general_ci');
         table.string('name');
@@ -47,7 +47,7 @@ exports.up = (knex, Promise) => (async() => {
             table.string('operation', 128).notNullable();
             table.primary(['entity', 'user', 'operation']);
         });
-
+*/
 })();
 
 exports.down = (knex, Promise) => (async() => {

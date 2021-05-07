@@ -2,8 +2,8 @@
 
 let config = require('./config');
 
-config.mysql.charset="utf8mb4";
-config.mysql.multipleStatements=true;
+//config.mysql.charset="utf8mb4";
+//config.mysql.multipleStatements=true;
 
 
 module.exports = {

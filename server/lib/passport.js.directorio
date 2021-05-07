@@ -176,7 +176,6 @@ module.exports.restLogin = (req, res, next) => {
     })(req, res, next);
 };
 let CasStrategy;
-let cas;
 if (config.cas && config.cas.enabled === true) {
   try {
     CasStrategy = require('passport-cas2').Strategy;
@@ -190,8 +189,9 @@ if (CasStrategy) {
     log.info('Using CAS auth (passport-cas2)');
     module.exports.authMethod = 'cas';
     module.exports.isAuthMethodLocal = false;
+    module.exports.authenticateCas = passport.authenticate('cas', { failureRedirect: '/login?cas-login-error' });
 
-    cas = new CasStrategy({
+    const cas = new CasStrategy({
         casURL: config.cas.url,
         propertyMap: {
             displayName: config.cas.nameTag,
@@ -203,6 +203,10 @@ if (CasStrategy) {
         const user = await users.getByUsername(username);
 
         log.info('CAS', 'Old User: '+JSON.stringify(profile));
+	//if (config.directorio && config.directorio.enabled === true) {
+	    //const directorio = require('./directorio');
+	    //user=await directorio.authorize(user);
+	//}
         return {
             id: user.id,
             username: username,
@@ -237,7 +241,8 @@ if (CasStrategy) {
     passport.serializeUser((user, done) => done(null, user));
     passport.deserializeUser((user, done) => done(null, user));
 
-    module.exports.authenticateCas = passport.authenticate('cas', { failureRedirect: '/login?cas-login-error' });
+    //module.exports.authenticateCas = passport.authenticate('cas', { failureRedirect: '/login?cas-login-error' });
+
     module.exports.logoutCas = function (req, res) {
         cas.logout(req, res, config.www.trustedUrlBase+'/?cas-logout-success');
     };
@@ -295,5 +300,4 @@ if (CasStrategy) {
     passport.serializeUser((user, done) => done(null, user.id));
     passport.deserializeUser((id, done) => nodeifyPromise(users.getById(contextHelpers.getAdminContext(), id), done));
 }
-
 

@@ -14,7 +14,7 @@ const session = require('express-session');
 const flash = require('connect-flash');
 const hbs = require('hbs');
 const compression = require('compression');
-let passport = require('./lib/passport');
+const passport = require('./lib/passport');
 const contextHelpers = require('./lib/context-helpers');
 
 const api = require('./routes/api');
@@ -330,8 +330,9 @@ async function createApp(appType) {
             function(req, res) {
                 res.redirect('/?cas-login-success');
           });
-          app.get('/cas/logout', passport.logoutCas);
-        }
+          //app.get('/cas/logout', passport.logoutCas);
+          //app.post('/cas/logout', passport.logoutCasPost);
+	}
     }
 
     app.use('/', await index.getRouter(appType));
@@ -395,4 +396,3 @@ async function createApp(appType) {
 
 module.exports.createApp = createApp;
 module.exports.setReady = setReady;
-

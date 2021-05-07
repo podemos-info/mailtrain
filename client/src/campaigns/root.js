@@ -172,7 +172,14 @@ function getMenus(t) {
                 },
                 'create-rss': {
                     title: createLabels[CampaignType.RSS],
-                    panelRender: props => <CampaignsCUD action="create" type={CampaignType.RSS} permissions={props.permissions} />
+                    panelRender: props => <CampaignsCUD action="create" type={CampaignType.RSS} permissions={props.permissions} />,
+                    checkPermissions: {
+		        createCampaignRss: {
+			    entityTypeId: 'namespace',
+		            requiredOperations: ['createCampaignRss']
+		        },
+		        ...namespaceCheckPermissions('createCampaignRss')
+		    }
                 },
                 'create-triggered': {
                     title: createLabels[CampaignType.TRIGGERED],
